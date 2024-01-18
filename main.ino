@@ -70,7 +70,7 @@ void setup()
 void loop() 
 {
     int roll = map(analogRead(A0), 0, 1023, -180, 180);
-    int pitch = map(analogRead(A1), 0, 1023, -90, 90) * 2;
+    int pitch = map(analogRead(A1), 0, 1023, -90, 90);
 
     display.clearDisplay();
 
@@ -89,6 +89,7 @@ void loop()
 // Roll from -180 to 180
 // Pitch from -90 to 90
 void drawHorizon(int pitch, int roll) {
+    pitch *= 2;
     float crollMain = cos((-roll - 270) * DEG2RAD);
     float srollMain = sin((-roll - 270) * DEG2RAD);
 
